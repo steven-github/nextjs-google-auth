@@ -34,13 +34,22 @@ export default function Home() {
                         Sign in with Google
                     </button>
                 ) : (
-                    <div className='flex space-x-4 justify-center'>
-                        <Link href='/profile' className='px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600'>
-                            Go to Profile
-                        </Link>
-                        <button onClick={() => signOut()} className='bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600'>
-                            Sign Out
-                        </button>
+                    <div className='flex flex-col items-center gap-5'>
+                        <Image
+                            src={session?.user?.image ? session?.user?.image : ""}
+                            alt={session?.user?.name || "Profile Picture"}
+                            className='w-[64px] h-[64px] rounded-full'
+                            width={64}
+                            height={64}
+                        />
+                        <div className='flex space-x-4 justify-center'>
+                            <Link href='/profile' className='px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600'>
+                                Go to Profile
+                            </Link>
+                            <button onClick={() => signOut()} className='bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600'>
+                                Sign Out
+                            </button>
+                        </div>
                     </div>
                 )}
             </main>
